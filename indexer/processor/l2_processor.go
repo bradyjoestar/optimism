@@ -308,7 +308,7 @@ func l2ProcessContractEventsBridgeCrossDomainMessages(processLog log.Logger, db 
 			// ensure we are in a caught up state before claiming a missing event. Since L2 timestamps are derived
 			// from L1, we can simply compare the timestamp of this event with the latest L1 header.
 			latestL1Header, err := db.Blocks.LatestL1BlockHeader()
-			if err == nil {
+			if err != nil {
 				return err
 			}
 
